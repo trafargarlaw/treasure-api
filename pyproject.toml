@@ -1,0 +1,47 @@
+[tool.poetry]
+name = "treasure-api"
+version = "0.1.0"
+description = ""
+authors = ["ImEins <mehdi.ramtakh@gmail.com>"]
+readme = "README.md"
+packages = [
+    { include = "src" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.115.5"
+uvicorn = "^0.32.1"
+sqlmodel = "^0.0.22"
+psycopg2-binary = "^2.9.10"
+pydantic-settings = "^2.6.1"
+pwdlib = "^0.2.1"
+loguru = "^0.7.2"
+asgi-correlation-id = "^4.3.4"
+redis = "^5.2.0"
+pydantic-extra-types = "^2.10.0"
+bcrypt = "^4.2.1"
+fastapi-limiter = "^0.1.6"
+asyncpg = "^0.30.0"
+phonenumbers = "^8.13.50"
+email-validator = "^2.2.0"
+sqlalchemy-crud-plus = "^1.6.0"
+python-jose = "^3.3.0"
+greenlet = "^3.1.1"
+alembic = "^1.14.0"
+fastapi-pagination = "^0.12.32"
+casbin = "^1.37.0"
+casbin-async-sqlalchemy-adapter = "^1.6.0"
+user-agents = "^2.2.0"
+
+httpx = "^0.28.1"
+ruff = "^0.8.3"
+pre-commit = "^4.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+seed = "src.commands.seed:seed"

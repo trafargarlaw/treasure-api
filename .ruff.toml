@@ -1,0 +1,24 @@
+line-length = 120
+target-version = "py311"
+cache-dir = "./.ruff_cache"
+
+[lint]
+select = [
+    "E",
+    "F",
+    "I",
+    "W505",
+    "SIM101",
+    "SIM114",
+    "PGH004",
+    "PLE1142",
+    "RUF100",
+    "F404",
+    "UP007"
+]
+
+[lint.isort]
+lines-between-types = 1
+
+[format]
+quote-style = "single"

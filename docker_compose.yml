@@ -1,0 +1,47 @@
+services:
+  api:
+    container_name: treasure-api
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    command: poetry run uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload
+    networks:
+      - treasure-network
+
+  db:
+    container_name: treasure-db
+    image: postgres:16
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: treasure
+    volumes:
+      - treasure-db-data:/var/lib/postgresql/data
+    networks:
+      - treasure-network
+
+  redis:
+    container_name: treasure-redis
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    environment:
+      REDIS_PASSWORD: redis
+      REDIS_DATABASE: 0
+    volumes:
+      - treasure-redis-data:/data
+    networks:
+      - treasure-network
+
+
+volumes:
+  treasure-db-data:
+  treasure-redis-data:
+
+networks:
+  treasure-network:
+    driver: bridge
